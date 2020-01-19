@@ -1,77 +1,77 @@
 [
     {
-        "id_product": 001,
+        "id_product": 1001,
         "product_name": "Ноутбук",
         "price": 45600
     },
     {
-        "id_product": 002,
+        "id_product": 1002,
         "product_name": "Мышка",
         "price": 1000
     },
     {
-        "id_product": 003,
+        "id_product": 1003,
         "product_name": "Клавиатура",
         "price": 1600
     },
     {
-        "id_product": 004,
+        "id_product": 1004,
         "product_name": "Монитор",
         "price": 4000
     },
     {
-        "id_product": 005,
+        "id_product": 1005,
         "product_name": "Коврик",
         "price": 1000
     },
     {
-        "id_product": 006,
+        "id_product": 1006,
         "product_name": "Сетевой фильтр",
         "price": 1200
     },
     {
-        "id_product": 007,
+        "id_product": 1007,
         "product_name": "Колонки",
         "price": 2100
     },
     {
-        "id_product": 008,
+        "id_product": 1008,
         "product_name": "USB хаб",
         "price": 600
     },
     {
-        "id_product": 009,
+        "id_product": 1009,
         "product_name": "KVM-switch",
         "price": 3000
     },
     {
-        "id_product": 010,
+        "id_product": 1010,
         "product_name": "Роутер",
         "price": 2900
     },
     {
-        "id_product": 011,
+        "id_product": 1011,
         "product_name": "Модем",
         "price": 1800
     },
     {
-        "id_product": 012,
+        "id_product": 1012,
         "product_name": "Патч-корд 3м",
         "price": 400
     },
     {
-        "id_product": 013,
+        "id_product": 1013,
         "product_name": "Наушники Sven",
         "price": 1500
     },
     {
-        "id_product": 014,
+        "id_product": 1014,
         "product_name": "Микрофон",
         "price": 800
     },
     {
-        "id_product": 015,
+        "id_product": 1015,
         "product_name": "Наушники Koss",
         "price": 2500
-    },
+    }
 ]
