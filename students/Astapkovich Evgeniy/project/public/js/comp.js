@@ -4,7 +4,7 @@ Vue.component('catalog-item', {
             <img :src="catalogImage" alt="Image">
             <div class="desc">
                 <h3>{{ item.product_name }}</h3>
-                <p>{{ item.price }} $</p>
+                <p>{{ item.price }} р.</p>
                 <button class="buy-btn" @click="addProduct(item)">Купить</button>
             </div>
         </div>
