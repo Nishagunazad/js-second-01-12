@@ -68,8 +68,10 @@ img {
 }
 .cart{
     position: relative;
+    display: flex;
 }
-.cart-block{
+
+.cart-block {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.62);
     border-radius: 5px;
     box-sizing: border-box;
@@ -151,6 +153,7 @@ img {
     position: absolute;
     bottom: 5px;
     right: 0;
+    cursor: pointer;
 }
 .search-form{
     position: relative;
