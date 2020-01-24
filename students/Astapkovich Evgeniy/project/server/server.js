@@ -4,7 +4,7 @@ const app = express();
 let port = 3000;
 
 app.use(express.json());
-app.use('/', express.static('public'));
+app.use(express.static('public'));
 app.get('/catalog', (req, res) => {
     fs.readFile('server/db/catalogData.json', 'utf-8', (err, data) => {
         if (err) {
