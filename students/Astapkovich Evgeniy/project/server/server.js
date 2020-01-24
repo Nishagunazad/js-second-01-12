@@ -15,4 +15,14 @@ app.get('/catalog', (req, res) => {
     });
 });
 
+app.get('/cart', (req, res) => {
+    fs.readFile('server/db/getBasket.json', 'utf-8', (err, data) => {
+        if (err) {
+            res.sendStatus(404, JSON.stringify({result: 0}));
+        } else {
+            res.send(data);
+        }
+    });
+});
+
 app.listen(port, () => console.log(`app listening at port ${port}...`));

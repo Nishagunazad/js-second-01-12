@@ -5,7 +5,8 @@ Vue.component ('catalog', {
         </div>`,
     data () {
         return {
-            url: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json',
+            // url: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json',
+            url: '/catalog',
             items: [],
             filtered: [],
         }

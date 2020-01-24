@@ -1,0 +1,18 @@
+{
+    "amount": 46600,
+    "countGoods": 2,
+    "contents": [
+      {
+        "id_product": 88888889,
+        "product_name": "тестНоутбук",
+        "price": 2,
+        "quantity": 1
+      },
+      {
+        "id_product": 8888888,
+        "product_name": "тестМышка",
+        "price": 1,
+        "quantity": 1
+      }
+    ]
+  }
