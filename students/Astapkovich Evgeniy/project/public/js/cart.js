@@ -42,7 +42,7 @@ Vue.component('cart', {
     addProduct(product) {
       let find = this.items.find(item => item.id_product === product.id_product)
       if (find) {
-        this.$parent.putReq('/cart' + product.id_product, {q: 1})
+        this.$parent.putReq('/cart/' + product.id_product, {q: 1})
           .then((d) => {
             d.result ? find.quantity++ : console.log('error')
           })
@@ -59,13 +59,13 @@ Vue.component('cart', {
     delProduct(product) {
       let find = this.items.find(item => item.id_product === product.id_product)
       if (find.quantity > 1) {
-        this.$parent.putReq('/cart' + product.id_product, {q: -1})
+        this.$parent.putReq('/cart/' + product.id_product, {q: -1})
           .then((d) => {
             d.result ? find.quantity-- : console.log('error')
           })
         
       } else {
-        this.$parent.deleteReq('/cart' + product.id_product)
+        this.$parent.deleteReq('/cart/' + product.id_product)
           .then (this.items.splice(this.items.indexOf(product), 1))
           .catch(err => console.log(err))
       }

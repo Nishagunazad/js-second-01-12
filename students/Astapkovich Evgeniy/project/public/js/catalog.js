@@ -19,7 +19,7 @@ Vue.component ('catalog', {
         }
     },
     mounted() {
-        this.$parent.getJSON(this.url)
+        this.$parent.getReq(this.url)
             .then (data => {
                 this.items = data;
                 this.filtered = data;
