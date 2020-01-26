@@ -1,9 +1,11 @@
-const cart = require('./cart')
+const cart = require('./cart');
+const writer = require('./writer');
+const logger = require('./logger');
 const fs = require('fs');
 const express = require('express');
 const app = express();
 const port = 3000;
-const path = 'server/db/'
+const path = 'server/db/';
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -34,7 +36,7 @@ app.post('/cart', (req, res) => {
             res.sendStatus(404, JSON.stringify({result: 0}));
         } else {
             let newCart = cart.add(req, JSON.parse(data));
-            writeFile(path + 'userCart.json', JSON.stringify(newCart), res)
+            writer(path + 'userCart.json', JSON.stringify(newCart), res)
         }
     })
 })
@@ -45,7 +47,7 @@ app.put('/cart/:id', (req, res) => {
             res.sendStatus(404, JSON.stringify({result: 0}));
         } else {
             let newCart = cart.change(req, JSON.parse(data));
-            writeFile(path + 'userCart.json', JSON.stringify(newCart), res)
+            writer(path + 'userCart.json', JSON.stringify(newCart), res)
         }
     })
 })
@@ -56,19 +58,9 @@ app.delete('/cart/:id', (req, res) => {
             res.sendStatus(404, JSON.stringify({result: 0}));
         } else {
             let newCart = cart.delete(req, JSON.parse(data));
-            writeFile(path + 'userCart.json', JSON.stringify(newCart), res)
+            writer(path + 'userCart.json', JSON.stringify(newCart), res)
         }
     })
 })
-
-function writeFile (file, obj, res) {
-    fs.writeFile(file, obj, (err) => {
-        if (err) {
-            res.sendStatus(404, JSON.stringify({result: 0}));
-        } else {
-            res.send(JSON.stringify({result: 1}));
-        }
-    })
-}
 
 app.listen(port, () => console.log(`app listening at port ${port}...`));
