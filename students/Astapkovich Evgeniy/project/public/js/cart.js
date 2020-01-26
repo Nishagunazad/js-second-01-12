@@ -43,16 +43,14 @@ Vue.component('cart', {
       let find = this.items.find(item => item.id_product === product.id_product)
       if (find) {
         this.$parent.putReq('/cart/' + product.id_product, {q: 1})
-          .then((d) => {
-            d.result ? find.quantity++ : console.log('error')
-          })
+          .then(() => find.quantity++)
+          .catch((err) => {throw new Error(err)})
         
       } else {
         let p = Object.assign({}, product, { quantity: 1});
         this.$parent.postReq('/cart', p)
-          .then (this.items.push(p))
-          .catch(err => console.log(err))
-        
+          .then (() => this.items.push(p))
+          .catch((err) => {throw new Error(err)})
       }
     },
 
@@ -60,15 +58,13 @@ Vue.component('cart', {
       let find = this.items.find(item => item.id_product === product.id_product)
       if (find.quantity > 1) {
         this.$parent.putReq('/cart/' + product.id_product, {q: -1})
-          .then((d) => {
-            d.result ? find.quantity-- : console.log('error')
-          })
-        
+          .then(() => find.quantity--)
+          .catch((err) => {throw new Error(err)})
       } else {
-        this.$parent.deleteReq('/cart/' + product.id_product)
-          .then (this.items.splice(this.items.indexOf(product), 1))
-          .catch(err => console.log(err))
-      }
+          this.$parent.deleteReq('/cart/' + product.id_product)
+            .then (() => this.items.splice(this.items.indexOf(product), 1))
+            .catch((err) => {throw new Error(err)})
+        }
     }
   },
 
