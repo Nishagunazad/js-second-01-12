@@ -3,21 +3,21 @@ let cart = {
         let id = +req.params.id;
         let find = this._findItem(cart, id);
         find.quantity += +req.body.q;
-        return cart;
+        return {newCart: cart, name: find.product_name};
     },
 
     add(req, cart){
-        // let item = req.body;
+        let item = req.body;
         // cart.contents.push(Object.assign({}, item, {quantity: 1}));
-        cart.contents.push(req.body);
-        return cart;
+        cart.contents.push(item);
+        return {newCart: cart, name: item.product_name};
     },
 
     delete(req, cart) {
-        let id = req.params.id;
+        let id = +req.params.id;
         let find = this._findItem(cart, id);
         cart.contents.splice(cart.contents.indexOf(find), 1);
-        return cart;
+        return {newCart: cart, name: find.product_name};
     },
 
     _findItem(cart, id) {

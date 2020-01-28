@@ -1,7 +1,6 @@
 const moment = require('moment');
 const fs = require('fs');
-const writer = require('./writer')
-let file = './sever/db/logger.json';
+let file = './server/db/logger.json';
 
 function logger (name, action) {
     fs.readFile(file, 'utf-8', (err, data) => {
@@ -10,12 +9,15 @@ function logger (name, action) {
         } else {
             let logs = JSON.parse(data);
             logs.push({
-                time: moment().format('DD MM YYYY hh:mm:ss'),
+                time: moment().format('DD.MM.YYYY hh:mm:ss'),
                 productName: name,
                 userAction: action
             })
-            
-            writer(file, JSON.stringify(logs), res)
+            fs.writeFile(file, JSON.stringify(logs), (err) => {
+                if (err) {
+                    console.log('can not write');
+                } 
+            })
         }
     })
 }
