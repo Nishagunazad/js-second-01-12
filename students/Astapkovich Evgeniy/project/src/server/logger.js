@@ -1,6 +1,6 @@
 const moment = require('moment');
 const fs = require('fs');
-let file = './server/db/logger.json';
+let file = './src/server/db/logger.json';
 
 function logger (name, action) {
     fs.readFile(file, 'utf-8', (err, data) => {

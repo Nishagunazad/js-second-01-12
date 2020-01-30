@@ -4,10 +4,10 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 const port = 3000;
-const path = 'server/db/';
+const path = 'src/server/db/';
 
 app.use(express.json());
-app.use(express.static('public'));
+app.use(express.static('src/public'));
 
 app.get('/catalog', (req, res) => {
     fs.readFile(path + 'catalogData.json', 'utf-8', (err, data) => {
@@ -20,7 +20,7 @@ app.get('/catalog', (req, res) => {
 });
 
 app.get('/cart', (req, res) => {
-    fs.readFile('server/db/userCart.json', 'utf-8', (err, data) => {
+    fs.readFile(path + 'userCart.json', 'utf-8', (err, data) => {
         if (err) {
             res.sendStatus(404, JSON.stringify({result: 0}));
         } else {
