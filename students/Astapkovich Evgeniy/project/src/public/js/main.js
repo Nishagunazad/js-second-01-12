@@ -1,6 +1,12 @@
+import cart from './cart';
+import catalog from './catalog';
+import filtercomp from './filter';
 
-let app = new Vue ({
+let app = {
   el: '#app',
+  components: {
+    cart, catalog, filtercomp
+  },
   methods: {
     getReq (url) {
       return fetch (url)
@@ -36,4 +42,6 @@ let app = new Vue ({
       }).then (d => d.json())
     }
   }
-})
+}
+
+export default app;

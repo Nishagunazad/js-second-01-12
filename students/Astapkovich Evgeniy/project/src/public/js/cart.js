@@ -1,4 +1,7 @@
-Vue.component('cart', {
+import item from './cart-item';
+
+let cart = {
+  components: {item},
   template: `
             <div class="cart-wrapper">        
                 <button class="btn-cart" @click="isVisibleCart = !isVisibleCart" type="button">Корзина</button>
@@ -6,7 +9,7 @@ Vue.component('cart', {
                     <div v-show="cartIsEmpty">
                         Корзина пуста...
                     </div>
-                    <cart-item v-for="prod of items" :key="prod.id_product" :item="prod"></cart-item>
+                    <item v-for="prod of items" :key="prod.id_product" :item="prod"></item>
                     <p v-show="!cartIsEmpty">Всего товаров: {{ getSum.qua }}</p>
                     <p v-show="!cartIsEmpty">Общая стоимость: {{ getSum.sum }} руб.</p>
                 </div>
@@ -74,4 +77,6 @@ Vue.component('cart', {
         this.items = data.contents;
       })
   }
-})
+}
+
+export default cart;

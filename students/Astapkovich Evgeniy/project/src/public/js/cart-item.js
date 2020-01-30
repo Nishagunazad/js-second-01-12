@@ -1,4 +1,4 @@
-Vue.component('cart-item', {
+export default {
     template: `<div class="cart-item">
                     <div class="product-bio">
                     <img :src="image" alt="Some image">
@@ -23,4 +23,4 @@ Vue.component('cart-item', {
             default: () => ({})
         }
     }
-})
+}
